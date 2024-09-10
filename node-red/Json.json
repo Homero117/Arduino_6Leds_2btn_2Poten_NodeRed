@@ -1,0 +1,422 @@
+[
+    {
+        "id": "0669978de97ae4b5",
+        "type": "tab",
+        "label": "Json1 (coso del cuadros)",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d0e70c9cd4b90a06",
+        "type": "serial in",
+        "z": "0669978de97ae4b5",
+        "name": "",
+        "serial": "c11921f601c7bcaa",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "e1ad9259f0c39536",
+                "3bb4b2b4521dd11a"
+            ]
+        ]
+    },
+    {
+        "id": "e1ad9259f0c39536",
+        "type": "debug",
+        "z": "0669978de97ae4b5",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a38db0351c22ca73",
+        "type": "debug",
+        "z": "0669978de97ae4b5",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3bb4b2b4521dd11a",
+        "type": "json",
+        "z": "0669978de97ae4b5",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "cd0061054486cb4c",
+                "a38db0351c22ca73"
+            ]
+        ]
+    },
+    {
+        "id": "a81ba6e4e7e4280b",
+        "type": "ui_text",
+        "z": "0669978de97ae4b5",
+        "group": "3f9083b460ce26cb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "ID",
+        "label": "ID:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 510,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b8088bcbc3b277f0",
+        "type": "ui_text",
+        "z": "0669978de97ae4b5",
+        "group": "3f9083b460ce26cb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "BTN1",
+        "label": "BTN1:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 510,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "5eb3431609f21622",
+        "type": "ui_text",
+        "z": "0669978de97ae4b5",
+        "group": "3f9083b460ce26cb",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "BTN2",
+        "label": "BTN2:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 510,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "cd0061054486cb4c",
+        "type": "function",
+        "z": "0669978de97ae4b5",
+        "name": "function 1",
+        "func": "const msg1={ \"payload\": msg.payload.ID};\nconst msg2={ \"payload\": msg.payload.btn1};\nconst msg3={ \"payload\": msg.payload.btn2};\nconst msg4={ \"payload\": msg.payload.A0};\nconst msg5={ \"payload\": msg.payload.A1};\n\n\nreturn [msg1,msg2,msg3,msg4,msg5];",
+        "outputs": 5,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 540,
+        "wires": [
+            [
+                "a81ba6e4e7e4280b"
+            ],
+            [
+                "b8088bcbc3b277f0"
+            ],
+            [
+                "5eb3431609f21622"
+            ],
+            [
+                "933d9eb6bf62bd52",
+                "7b39ed325c66d888"
+            ],
+            [
+                "beb2c4736947c4fe",
+                "5127d92f5f938919"
+            ]
+        ]
+    },
+    {
+        "id": "933d9eb6bf62bd52",
+        "type": "ui_gauge",
+        "z": "0669978de97ae4b5",
+        "name": "A0",
+        "group": "7e6644e950aadfcb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "A0",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1023",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "350",
+        "seg2": "700",
+        "diff": false,
+        "className": "",
+        "x": 510,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "beb2c4736947c4fe",
+        "type": "ui_gauge",
+        "z": "0669978de97ae4b5",
+        "name": "A1",
+        "group": "7e6644e950aadfcb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "A1",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1023",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "350",
+        "seg2": "700",
+        "diff": false,
+        "className": "",
+        "x": 510,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "0c9836171851269a",
+        "type": "function",
+        "z": "0669978de97ae4b5",
+        "name": "function 2",
+        "func": "const A0valor = msg.payload;\n\nif(A0valor > 700){\n    msg.payload = \"Ätencion, La entrada A0 fuera de rango\";\n  return msg;\n}else{\n    return null;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 780,
+        "wires": [
+            [
+                "ac88f47d46ce026e",
+                "8fde28d33573c7e9"
+            ]
+        ]
+    },
+    {
+        "id": "ac88f47d46ce026e",
+        "type": "ui_audio",
+        "z": "0669978de97ae4b5",
+        "name": "",
+        "group": "7e6644e950aadfcb",
+        "voice": "Microsoft Sabina - Spanish (Mexico)",
+        "always": "",
+        "x": 580,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "8fde28d33573c7e9",
+        "type": "ui_toast",
+        "z": "0669978de97ae4b5",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 550,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "c625a99642aa08b0",
+        "type": "function",
+        "z": "0669978de97ae4b5",
+        "name": "function 3",
+        "func": "const A1valor = msg.payload;\n\nif(A1valor > 700){\n    msg.payload = \"Ätencion, La entrada A1 fuera de rango\";\n    return msg;\n}else{\n    return null;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 1040,
+        "wires": [
+            [
+                "9e1e7a60a6fb1d99",
+                "ce056f27cae5bf6b"
+            ]
+        ]
+    },
+    {
+        "id": "9e1e7a60a6fb1d99",
+        "type": "ui_audio",
+        "z": "0669978de97ae4b5",
+        "name": "",
+        "group": "7e6644e950aadfcb",
+        "voice": "Microsoft Sabina - Spanish (Mexico)",
+        "always": "",
+        "x": 440,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "ce056f27cae5bf6b",
+        "type": "ui_toast",
+        "z": "0669978de97ae4b5",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 350,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "7b39ed325c66d888",
+        "type": "function",
+        "z": "0669978de97ae4b5",
+        "name": "function 6",
+        "func": "var A0_value = msg.payload;\nvar AudioPlaying0 = flow.get(\"AudioPlaying0\");\n\nif (A0_value > 700 && AudioPlaying0 == false) {\n    msg.payload = \"¡PELIGRO!, el valor de A0 esta fuera de rango\";\n    flow.set(\"AudioPlaying0\", true);\n    setTimeout(function () { flow.set(\"AudioPlaying0\", false); }, 2000);\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nif (flow.get(\"AudioPlaying0\") === undefined) {\n    flow.set(\"AudioPlaying0\", false)\n}",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 720,
+        "wires": [
+            [
+                "0c9836171851269a"
+            ]
+        ]
+    },
+    {
+        "id": "5127d92f5f938919",
+        "type": "function",
+        "z": "0669978de97ae4b5",
+        "name": "function 7",
+        "func": "var A0_value = msg.payload;\nvar AudioPlaying0 = flow.get(\"AudioPlaying0\");\n\nif (A0_value > 700 && AudioPlaying0 == false) {\n    msg.payload = \"¡PELIGRO!, el valor de A0 esta fuera de rango\";\n    flow.set(\"AudioPlaying0\", true);\n    setTimeout(function () { flow.set(\"AudioPlaying0\", false); }, 2000);\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nif (flow.get(\"AudioPlaying0\") === undefined) {\n    flow.set(\"AudioPlaying0\", false)\n}",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 880,
+        "wires": [
+            [
+                "c625a99642aa08b0"
+            ]
+        ]
+    },
+    {
+        "id": "c11921f601c7bcaa",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM8",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "3f9083b460ce26cb",
+        "type": "ui_group",
+        "name": "Entradas digitales",
+        "tab": "e42663bf28210996",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7e6644e950aadfcb",
+        "type": "ui_group",
+        "name": "Entradas Analogicas",
+        "tab": "e42663bf28210996",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e42663bf28210996",
+        "type": "ui_tab",
+        "name": "principal",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
